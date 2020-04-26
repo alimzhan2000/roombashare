@@ -167,7 +167,7 @@ def callback(call):
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
 			button3 = types.InlineKeyboardButton('Изменить \nОткуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
-			button5 = types.InlineKeyboardButton('🔙Назад в меню')
+			button5 = types.InlineKeyboardButton('🔙Назад в меню', callback_data='')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
 			keyboard.row(button5)
@@ -258,7 +258,7 @@ def name_insert_data(message):
 			u.mode = 2
 			keyboard = types.ReplyKeyboardMarkup(True, True)
 			keyboard.row('🔙Назад в меню')
-			bot.send_message(message.chat.id, 'Приятно познакомиться :) Теперь укажи свой возраст(извини если грубо)', reply_markup = keyboard)
+			bot.send_message(message.chat.id, 'Приятно познакомиться :) Теперь укажи свой возраст(извини если грубо - это нужно)', reply_markup = keyboard)
 		elif u.mode == 2:
 			age = message.text
 			if not age.isdigit() or int(age) > 110 or int(age) < 14:
@@ -514,7 +514,7 @@ def name_insert_data(message):
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
 			button3 = types.InlineKeyboardButton('Изменить\nОткуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
-			button5 = types.InlineKeyboardButton('🔙Назад в меню')
+			button5 = types.InlineKeyboardButton('🔙Назад в меню', callback_data='')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
 			keyboard.row(button5)
@@ -538,7 +538,7 @@ def name_insert_data(message):
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
 			button3 = types.InlineKeyboardButton('Изменить \nОткуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
-			button5 = types.InlineKeyboardButton('🔙Назад в меню')
+			button5 = types.InlineKeyboardButton('🔙Назад в меню', callback_data='')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
 			keyboard.row(button5)
@@ -559,7 +559,7 @@ def name_insert_data(message):
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
 			button3 = types.InlineKeyboardButton('Изменить\nОткуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
-			button5 = types.InlineKeyboardButton('🔙Назад в меню')
+			button5 = types.InlineKeyboardButton('🔙Назад в меню', callback_data='')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
 			keyboard.row(button5)
@@ -580,7 +580,7 @@ def name_insert_data(message):
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
 			button3 = types.InlineKeyboardButton('Изменить\nОткуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
-			button5 = types.InlineKeyboardButton('🔙Назад в меню')
+			button5 = types.InlineKeyboardButton('🔙Назад в меню', callback_data='')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
 			keyboard.row(button5)
