@@ -200,8 +200,8 @@ def name_insert_data(message):
 			keyboard = types.InlineKeyboardMarkup()
 			button = types.InlineKeyboardButton('Просмотреть профили людей', callback_data = 'rematch_profiles')
 			keyboard.add(button)
-			bot.send_message(message.chat.id, 'У вас уже есть активное объявление. '
-			'Чтобы изменить или удалить объявление можешь перейти в раздел *\'Мои объявления\'*'
+			bot.send_message(message.chat.id, 'Привет мой старый друг! Так как у тебя уже есть активное объявление можешь сразу просмотреть профили. '
+			'Если ты хочешь что-то изменить или удалить свое объявление, переходи в раздел *\'Мои объявления\'*'
 			' в главном меню (/menu).', reply_markup = keyboard, parse_mode = 'Markdown')
 			return
 		keyboard = types.ReplyKeyboardMarkup(True, False)
