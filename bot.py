@@ -283,7 +283,7 @@ def name_insert_data(message):
 			u.mode = 2
 			keyboard = types.ReplyKeyboardMarkup(True, True)
 			keyboard.row('🔙Назад в меню')
-			bot.send_message(message.chat.id, '*Приятно познакомиться :) Теперь укажи свой возраст(извини если грубо - это нужно)*', parse_mode = 'Markdown', reply_markup = keyboard)
+			bot.send_message(message.chat.id, 'Приятно познакомиться :) Теперь укажи свой возраст(извини если грубо - это нужно)', parse_mode = 'Markdown', reply_markup = keyboard)
 		elif u.mode == 2:
 			age = message.text
 			if not age.isdigit() or int(age) > 110 or int(age) < 14:
@@ -293,7 +293,7 @@ def name_insert_data(message):
 			u.mode += 1
 			keyboard = types.ReplyKeyboardMarkup(True, True)
 			keyboard.row('🔙Назад в меню')
-			bot.send_message(message.chat.id, '*Так, с возрастом закончили. Кстати, хотел у тебя еще узнать, с какого ты города или региона приехал/а?*', parse_mode = 'Markdown', reply_markup=keyboard)
+			bot.send_message(message.chat.id, 'Так, с возрастом закончили. Кстати, хотел у тебя еще узнать, с какого ты города или региона приехал/а?', parse_mode = 'Markdown', reply_markup=keyboard)
 		elif u.mode == 3:
 			u.seeker.homeland = message.text
 			u.mode += 1
@@ -316,7 +316,7 @@ def name_insert_data(message):
 			keyboard = types.ReplyKeyboardMarkup(True, True)
 			keyboard.row('Учусь', 'Работаю', 'Не учусь и не работаю')
 			keyboard.row('🔙Назад в меню')
-			bot.send_message(message.chat.id, '*Хотел у тебя еще спросить твой основной род деятельности. Ты пока учишься или уже работаешь?*\n1. Учусь\n2. Работаю\n3. Не учусь и не работаю', \
+			bot.send_message(message.chat.id, 'Хотел у тебя еще спросить твой основной род деятельности. Ты пока учишься или уже работаешь?\n1. Учусь\n2. Работаю\n3. Не учусь и не работаю', \
 				parse_mode = 'Markdown', reply_markup = keyboard)
 		elif u.mode == 5:
 			keyboard = types.ReplyKeyboardMarkup(True, True)
@@ -328,7 +328,7 @@ def name_insert_data(message):
 				keyboard.row('Евразийский НУ', 'Университет Астаны')
 				keyboard.row('Медунивер', 'Коледж')
 				keyboard.row('Другое...')
-				bot.send_message(message.chat.id, '*Ух ты. Люблю образованных людей🎓 В каком заведнии ты учишься?*', parse_mode = 'Markdown', reply_markup=keyboard)
+				bot.send_message(message.chat.id, 'Ух ты. Люблю образованных людей🎓 В каком заведнии ты учишься?', parse_mode = 'Markdown', reply_markup=keyboard)
 			elif message.text == 'Работаю':
 				u.seeker.worker_or_student = 'worker'
 				keyboard.row('🔙Назад в меню')
@@ -337,14 +337,14 @@ def name_insert_data(message):
 				keyboard.row('Госслужба', 'Работаю на себя')
 				keyboard.row('Частная комания', 'Рестораны/кафе')
 				keyboard.row('Другое...')
-				bot.send_message(message.chat.id, '*Ух ты. Люблю деловых людей! В какой сфере ты работаешь?*', parse_mode = 'Markdown', reply_markup=keyboard)
+				bot.send_message(message.chat.id, 'Ух ты. Люблю деловых людей! В какой сфере ты работаешь?', parse_mode = 'Markdown', reply_markup=keyboard)
 			elif message.text == 'Не учусь и не работаю':
 				u.seeker.worker_or_student = 'neither'
 				u.mode += 2
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Казахский', 'Русский', 'Оба языка')
 				keyboard.row('Назад в меню')
-				bot.send_message(message.chat.id, '*На каких языках ты умеешь говорить?*\n1. Казахский\n2. Русский\n3. Оба языка',\
+				bot.send_message(message.chat.id, 'На каких языках ты умеешь говорить?\n1. Казахский\n2. Русский\n3. Оба языка',\
 					parse_mode = 'Markdown', reply_markup=keyboard)
 			else:
 				bot.send_message(message.chat.id, 'Хээй! Вводи пожалуйста с клавиатуры. Я просто по-другому не понимаю😓')
@@ -364,12 +364,12 @@ def name_insert_data(message):
 				if status == 'student':
 					keyboard.row('Днем', 'Ночью')
 					keyboard.row('🔙Назад в меню')
-					bot.send_message(message.chat.id, '*Какой у тебя режим учебы?*\n1. Днем\n2. Ночью', \
+					bot.send_message(message.chat.id, 'Какой у тебя режим учебы?\n1. Днем\n2. Ночью', \
 						parse_mode = 'Markdown', reply_markup=keyboard)
 				elif status == 'worker':
 					keyboard.row('Днем', 'Ночью')
 					keyboard.row('🔙Назад в меню')
-					bot.send_message(message.chat.id, '*Какой у тебя режим работы?*\n1. Днем\n2. Ночью', \
+					bot.send_message(message.chat.id, 'Какой у тебя режим работы?\n1. Днем\n2. Ночью', \
 						parse_mode = 'Markdown', reply_markup=keyboard)
 		elif u.mode == 7:
 			sleep = message.text
@@ -379,7 +379,7 @@ def name_insert_data(message):
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Казахский', 'Русский', 'Оба языка')
 				keyboard.row('🔙Назад в меню')
-				bot.send_message(message.chat.id, '*Так, половину пути мы с тобой уже прошли. Осталось еще немного. Укажи языки, на которых ты умеешь говорить:*\n1. Казахский\n2. Русский\n3. Оба языка', \
+				bot.send_message(message.chat.id, 'Так, половину пути мы с тобой уже прошли. Осталось еще немного. Укажи языки, на которых ты умеешь говорить:\n1. Казахский\n2. Русский\n3. Оба языка', \
 					parse_mode = 'Markdown', reply_markup=keyboard)
 			else:
 				bot.send_message(message.chat.id, 'Выбирай кнопочки пожалуйста) Я по-другому не понимаю😓')
@@ -393,7 +393,7 @@ def name_insert_data(message):
 				keyboard.row('Курю/Не пью', 'Не курю/Пью')
 				keyboard.row('Не курю/Не пью', 'Курю/Пью')
 				keyboard.row('🔙Назад в меню')
-				bot.send_message(message.chat.id, '*Какие у тебя есть вредные привычки?*', parse_mode = 'Markdown', reply_markup=keyboard)
+				bot.send_message(message.chat.id, 'Какие у тебя есть вредные привычки?', parse_mode = 'Markdown', reply_markup=keyboard)
 			else:
 				bot.send_message(message.chat.id, 'Выбирай кнопочки пожалуйста) Я по-другому не понимаю😓')
 				return
@@ -405,7 +405,7 @@ def name_insert_data(message):
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Да', 'Нет')
 				keyboard.row('🔙Назад в меню')
-				bot.send_message(message.chat.id, '*Умеешь ли Вы готовить?*', parse_mode = 'Markdown', reply_markup=keyboard)
+				bot.send_message(message.chat.id, 'Умеешь ли Вы готовить?*, parse_mode = 'Markdown', reply_markup=keyboard)
 			else:
 				bot.send_message(message.chat.id, 'Выбирай кнопочки пожалуйста) Я по-другому не понимаю😓')
 				return
@@ -419,18 +419,18 @@ def name_insert_data(message):
 				return
 			u.mode += 1
 			keyboard = types.ReplyKeyboardMarkup(True, True)
-			keyboard.row('Да', 'Нет')
+			keyboard.row('Людей', 'Жилье')
 			keyboard.row('🔙Назад в меню')
 			bot.send_message(message.chat.id, 'Самый главный вопрос! Ты ищещь людей к себе на подселение или ищешь жилье для совместной аренды?', reply_markup=keyboard)
 		elif u.mode == 11:
-			if message.text == 'Да':
+			if message.text == 'Людей':
 				u.seeker.hata = True
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Алматинский', 'Байконурский')
 				keyboard.row('Есильский', 'Сарыаркинский')
 				keyboard.row('🔙Назад в меню')
-				bot.send_message(message.chat.id, 'В каком районе находится ваша квартира?', reply_markup = keyboard)
-			elif message.text == 'Нет':
+				bot.send_message(message.chat.id, 'В каком районе находится твоя квартира?', reply_markup = keyboard)
+			elif message.text == 'Жилье':
 				u.seeker.hata = False
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Алматинский', 'Байконурский')
