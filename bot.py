@@ -405,7 +405,7 @@ def name_insert_data(message):
 				keyboard = types.ReplyKeyboardMarkup(True, True)
 				keyboard.row('Да', 'Нет')
 				keyboard.row('🔙Назад в меню')
-				bot.send_message(message.chat.id, 'Умеешь ли Вы готовить?*, parse_mode = 'Markdown', reply_markup=keyboard)
+				bot.send_message(message.chat.id, 'Умеешь ли Вы готовить?', parse_mode = 'Markdown', reply_markup=keyboard)
 			else:
 				bot.send_message(message.chat.id, 'Выбирай кнопочки пожалуйста) Я по-другому не понимаю😓')
 				return
