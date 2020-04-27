@@ -562,7 +562,7 @@ def name_insert_data(message):
 				photo = photos.download_photo(photo_id)
 				bot.send_photo(message.chat.id, photo, caption = cap, reply_markup = keyboard, parse_mode = 'Markdown')
 	elif u.change_st > 0:
-		if change_st == 1:
+		if u.change_st == 1:
 			name = message.text
 			db.change_name(message.chat.id, name)
 			bot.send_message(message.chat.id, 'Твое имя успешно изменено!')
@@ -580,8 +580,8 @@ def name_insert_data(message):
 				bot.edit_message_text(chat_id = message.chat.id, message_id = u.last_mess_id, text = cap, reply_markup = keyboard, parse_mode = 'Markdown')
 			else: 
 				bot.edit_message_caption(chat_id = message.chat.id, message_id = u.last_mess_id, caption = cap, reply_markup = keyboard, parse_mode = 'Markdown')
-			change_st = 0
-		elif change_st == 2:
+			u.change_st = 0
+		elif u.change_st == 2:
 			age = message.text
 			if not age.isdigit():
 				bot.send_message(message.chat.id, 'Введи целое число!')
@@ -602,8 +602,8 @@ def name_insert_data(message):
 				bot.edit_message_text(chat_id = message.chat.id, message_id = u.last_mess_id, text = cap, reply_markup = keyboard, parse_mode = 'Markdown')
 			else: 
 				bot.edit_message_caption(chat_id = message.chat.id, message_id = u.last_mess_id, caption = cap, reply_markup=keyboard, parse_mode = 'Markdown')
-			change_st = 0
-		elif change_st == 3:
+			u.change_st = 0
+		elif u.change_st == 3:
 			homeland = message.text
 			db.change_homeland(message.chat.id, homeland)
 			bot.send_message(message.chat.id, 'Твое место откуда ты родом успешно изменено!')
@@ -621,8 +621,8 @@ def name_insert_data(message):
 				bot.edit_message_text(chat_id = message.chat.id, message_id = u.last_mess_id, text = cap, reply_markup = keyboard, parse_mode = 'Markdown')
 			else: 
 				bot.edit_message_caption(chat_id = message.chat.id, message_id = u.last_mess_id, caption = cap, reply_markup=keyboard, parse_mode = 'Markdown')
-			change_st = 0
-		elif change_st == 4:
+			u.change_st = 0
+		elif u.change_st == 4:
 			desc = message.text
 			db.change_desc(message.chat.id, desc)
 			bot.send_message(message.chat.id, 'Твое описание о себе успешно изменено!')
@@ -640,7 +640,7 @@ def name_insert_data(message):
 				bot.edit_message_text(chat_id = message.chat.id, message_id = u.last_mess_id, text = cap, reply_markup = keyboard, parse_mode = 'Markdown')
 			else: 
 				bot.edit_message_caption(chat_id = message.chat.id, message_id = u.last_mess_id, caption = cap, reply_markup=keyboard, parse_mode = 'Markdown')
-			change_st = 0
+			u.change_st = 0
 	else:
 		bot.send_message(message.chat.id, 'Чтобы выйти в главное меню выполните команду /menu')
 @bot.message_handler(content_types = ['photo'])
