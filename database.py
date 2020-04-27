@@ -1,9 +1,11 @@
+#-*-coding: utf-8-*-
+
 import psycopg2
 import telebot
 import os
 from users import Seeker
 
-token = "1012837410:AAFY0lxwBFgWPIbRO-lO_MumXnlYJl-1ReQ"
+token = "1012075393:AAFXyQtFOdrH7mPxeV2QmSX2otYfrEi-aRA"
 bot = telebot.TeleBot(token)
 
 class SQL:
@@ -47,7 +49,8 @@ class SQL:
 				photo_id TEXT[] DEFAULT ARRAY[0],
 				bad_habits TEXT,
 				telegram_username TEXT,
-				hata BOOLEAN
+				hata BOOLEAN,
+				food BOOLEAN
 			);
 			CREATE TABLE offerer(
 				id SERIAL PRIMARY KEY,
@@ -75,11 +78,12 @@ class SQL:
 	def seeker_insert(self, seeker):
 		self.cur.execute('''
 			INSERT INTO seeker(name, age, homeland, phone_num, gender, worker_or_student, study_or_work_place, sleeping_mode, langs, 
-			distr, near_what, price, seeking_for, interest, chat_id, photo_id, bad_habits, telegram_username, hata) 
-			VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+			distr, near_what, price, seeking_for, interest, chat_id, photo_id, bad_habits, telegram_username, hata, food) 
+			VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 			''', (seeker.name, seeker.age, seeker.homeland, seeker.phone_num, seeker.gender, seeker.worker_or_student, \
 				seeker.study_or_work_place, seeker.sleeping_mode, seeker.langs, seeker.distr, seeker.near_what, seeker.price, \
-				seeker.seeking_for, seeker.interest, seeker.chat_id, seeker.photo_id, seeker.bad_habits, seeker.telegram_username, seeker.hata))
+				seeker.seeking_for, seeker.interest, seeker.chat_id, seeker.photo_id, seeker.bad_habits, seeker.telegram_username, \
+				seeker.hata, seeker.food))
 		self.con.commit()
 	def seeker_check_chat_id(self, chat_id):
 		self.cur.execute('SELECT * FROM seeker WHERE chat_id = %s', (chat_id,))
@@ -175,6 +179,7 @@ class SQL:
 						num1 += 4
 					if profiles[j+1][2] == seeker.langs:
 						num2 += 4
+				print(num1, num2)
 				if num2 > num1:
 					profiles[j], profiles[j+1] = profiles[j+1], profiles[j]
 		return profiles
@@ -188,7 +193,6 @@ class SQL:
 	def get_profile_photo(self, prof_id):
 		self.cur.execute('SELECT photo_id FROM seeker WHERE id = %s', (str(prof_id), ))
 		photo_id = self.cur.fetchall()
-		print(photo_id)
 		return photo_id[0][0][0]
 	def close(self):
 		self.con.close()

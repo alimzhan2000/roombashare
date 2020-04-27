@@ -40,6 +40,7 @@ class Seeker:
 			self.bad_habits = ""
 			self.telegram_username = ""
 			self.hata = False
+			self.food = False
 			return
 		self.name = profile[1]
 		self.age = profile[2]
@@ -60,3 +61,4 @@ class Seeker:
 		self.bad_habits = profile[18]
 		self.telegram_username = profile[19]
 		self.hata = profile[20]
+		self.food = profile[21]
