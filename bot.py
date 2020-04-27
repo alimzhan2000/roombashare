@@ -56,7 +56,7 @@ def main_menu(message):
 def profile_info(profile):
 	if profile[20] == True:
 		text = 'Ищет людей для подселения в свою квартиру\nРасположение квартиры: ' + profile[9] + ' район\n'
-		text += "Предлагает квартиру " + profile[11] + ' тенге\n\n'
+		text += "Предлагает квартиру " + profile[11] + '\n\n'
 	else:
 		text = "Ищет квартиру за " + profile[11]
 		text += 'Ищет квартиру в '
