@@ -55,8 +55,8 @@ def main_menu(message):
 
 def profile_info(profile):
 	if profile[20] == True:
-		text = 'Ищет людей для подселения в свою квартиру\nРасположение квартиры: ' + profile[9] + ' район\n'
-		text += "Предлагает квартиру " + profile[11] + '\n\n'
+		text = '*Ищет людей для подселения в свою квартиру*\n*Расположение квартиры:* ' + profile[9] + ' район\n'
+		text += "*Предлагает квартиру* " + profile[11] + '\n\n'
 	else:
 		text = "Ищет квартиру за " + profile[11]
 		text += 'Ищет квартиру в '
@@ -199,12 +199,12 @@ def callback(call):
 			bot.edit_message_reply_markup(chat_id = call.message.chat.id, message_id = call.message.message_id, reply_markup = keyboard)
 		elif call.data == 'change_name':
 			bot.send_message(call.message.chat.id, 'Хмм. Надеюсь ты в розыск не попал) Введи свое новое имя')
-			U.change_st = 1
-			U.last_mess_id = call.message.message_id
+			u.change_st = 1
+			u.last_mess_id = call.message.message_id
 		elif call.data == 'change_age':
 			bot.send_message(call.message.chat.id, 'У кого-то день рождение? Введи свой новый возраст\n(целое число)')
-			U.change_st = 2
-			U.last_mess_id = call.message.message_id
+			u.change_st = 2
+			u.last_mess_id = call.message.message_id
 		elif call.data == 'change_homeland':
 			bot.send_message(call.message.chat.id, 'Введи свое новое место откуда ты родом\n(регион, город)')
 			u.change_st = 3
