@@ -75,7 +75,7 @@ def profile_info(profile):
 		age = str(profile[2])
 	age += ' лет'
 	if profile[5] == 'student':
-		work = 'Студент. Учусь в '
+		work = '*Студент*. Учусь в '
 	else:
 		work = 'Работаю в сфере '
 	place = ""
@@ -89,9 +89,9 @@ def profile_info(profile):
 
 	if len(profile) > 20 and profile[21] is not None:
 		if profile[21] is True:
-			food = 'Умеею готовить: ' + 'Да\n'
+			food = '*Умеею готовить:* ' + 'Да\n'
 		else:
-			food = 'Умеею готовить: ' + 'Нет\n'
+			food = '*Умеею готовить:* ' + 'Нет\n'
 
 	text += '*Имя:* '+ profile[1] + '\n' + '*Возраст:* ' + str(age) + '\n' + \
 			'*Родом с* '+ profile[3] + '\n' + '*Пол:* ' + profile[4] + '\n' + work + \
