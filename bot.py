@@ -630,7 +630,7 @@ def name_insert_data(message):
 			keyboard = types.InlineKeyboardMarkup()
 			button1 = types.InlineKeyboardButton('Изменить Имя', callback_data = 'change_name')
 			button2 = types.InlineKeyboardButton('Изменить Возраст', callback_data = 'change_age')
-			button3 = types.InlineKeyboardButton('Изменить\nОткуда Родом', callback_data = 'change_homeland')
+			button3 = types.InlineKeyboardButton('Изменить\n Откуда Родом', callback_data = 'change_homeland')
 			button4 = types.InlineKeyboardButton('Изменить О себе', callback_data = 'change_desc')
 			keyboard.row(button1, button2)
 			keyboard.row(button3, button4)
